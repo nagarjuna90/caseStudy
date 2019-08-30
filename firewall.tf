@@ -1,5 +1,10 @@
+resource "google_compute_network" "default" {
+  name = "test-network2"
+  project = "aerial-passage-248314"
+}
+
 resource "google_compute_firewall" "default" {
-  name    = "test-firewall"
+  name    = "test2-firewall"
   network = "${google_compute_network.default.name}"
 
   allow {
@@ -12,8 +17,4 @@ resource "google_compute_firewall" "default" {
   }
 
   source_tags = ["web"]
-}
-
-resource "google_compute_network" "default" {
-  name = "test-network"
 }
